@@ -47,34 +47,40 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 elevation: 5.0,
                 color: Colors.lightBlueAccent,
                 borderRadius: BorderRadius.circular(30.0),
-                child: MaterialButton(
-                  onPressed: () {
-                    //Go to login screen.
-                    Navigator.pushNamed((context), LoginScreen.id);
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: Text(
-                    'Log In',
+                child: Hero(
+                  tag: 'loginHero',
+                  child: MaterialButton(
+                    onPressed: () {
+                      //Go to login screen.
+                      Navigator.pushNamed((context), LoginScreen.id);
+                    },
+                    minWidth: 200.0,
+                    height: 42.0,
+                    child: Text(
+                      'Log In',
+                    ),
                   ),
                 ),
               ),
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                color: Colors.blueAccent,
-                borderRadius: BorderRadius.circular(30.0),
-                elevation: 5.0,
-                child: MaterialButton(
-                  onPressed: () {
-                    //Go to registration screen.
-                    Navigator.pushNamed((context), RegistrationScreen.id);
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: Text(
-                    'Register',
+              child: Hero(
+                tag: 'registerHero',
+                child: Material(
+                  color: Colors.blueAccent,
+                  borderRadius: BorderRadius.circular(30.0),
+                  elevation: 5.0,
+                  child: MaterialButton(
+                    onPressed: () {
+                      //Go to registration screen.
+                      Navigator.pushNamed((context), RegistrationScreen.id);
+                    },
+                    minWidth: 200.0,
+                    height: 42.0,
+                    child: Text(
+                      'Register',
+                    ),
                   ),
                 ),
               ),
