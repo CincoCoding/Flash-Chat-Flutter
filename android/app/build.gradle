@@ -26,7 +26,10 @@ apply plugin: 'com.android.application'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    compileSdkVersion 29
+    packagingOptions {
+        pickFirst  '**'
+    }
+    compileSdkVersion 31
 
     lintOptions {
         disable 'InvalidPackage'
@@ -35,7 +38,7 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "co.testdavidgarcia.flash_chat"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 29
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -56,7 +59,6 @@ flutter {
 }
 
 dependencies {
-    implementation 'androidx.multidex:multidex:2.0.0'
     // Import the Firebase BoM
     implementation platform('com.google.firebase:firebase-bom:32.0.0')
 
@@ -64,12 +66,5 @@ dependencies {
     // TODO: Add the dependencies for Firebase products you want to use
     // When using the BoM, don't specify versions in Firebase dependencies
     // https://firebase.google.com/docs/android/setup#available-libraries
-
 }
 
-plugins {
-    id 'com.android.application'
-
-    // Add the Google services Gradle plugin
-    id 'com.google.gms.google-services'
-}
